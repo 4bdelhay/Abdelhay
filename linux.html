@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>Linux Part 1</title>
+<head>
+    <link rel="stylesheet" href="dark.css">
+    <style>
+        .green-text {
+            color: rgb(92, 245, 92);
+        }
+        .terminal {
+            background-color: #292929;
+            color: #dcdcdc;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .user {
+            color: #4ec9b0;
+        }
+
+        .path {
+            color: #9cdcfe;
+        }
+    </style>
+</head>
+<br />
+<p> Welcome to the first part of the "Linux Fundamentals". You're most likely using a Windows or Mac machine, both are different in visual design and how they operate. Just like Windows, iOS and MacOS, Linux is just another operating system and one of the most popular in the world powering smart cars, android devices, supercomputers, home appliances, enterprise servers, and more.
+
+    This page will have you:
+    
+    1/ Running your very first commands in an interactive Linux machine in your browser
+    2/ Teaching you some essential commands used to interact with the file system
+    3/ Demonstrate how you can search for files and introduce shell operators</p>
+
+
+    <center><p><li class="green-text"> Let's get started!</li></p></center>
+    <br />
+
+    <p>In this page we'll be using <a href="https://distrosea.com">Distrosea</a> so you can interact with all within your browser whilst following along with this page.</p>
+    <p>As we previously discussed, a large selling point of using Operating Systems such as Ubuntu is how lightweight they can be. This, of course, doesn't come without its disadvantages, where for example, often there is no GUI (Graphical User Interface) or what is also known as a desktop environment that we can use to interact with the machine (unless it has been installed). A large part of interacting with these systems is using the "Terminal".
+
+    The "Terminal" is purely text-based and is intimidating at first. However, if we break down some of the commands, after some time, you quickly become familiar with using the terminal!</p>
+    <center><p><li class="green-text"> How does it look like ?</li></p></center>
+
+
+  <!-- Terminal Code Block -->
+  <div class="terminal">
+    <p><span class="user">username@linux</span>:<span class="path">~</span>$ echo "Hello, Linux!"</p>
+    <p>Hello, Linux!</p>
+    <p><span class="user">username@linux</span>:<span class="path">~</span>$ ls</p>
+    <p>Documents  Downloads  Pictures  Music</p>
+    <p><span class="user">username@linux</span>:<span class="path">~</span>$ cd Documents</p>
+    <p><span class="user">username@linux</span>:<span class="path">~/Documents</span>$</p>
+</div>
+<br />
+<p>In the example above I ran 3 commands: 
+    <span class="green-text">echo</span>: we use it to output any text that we provide.
+    <span class="green-text">ls</span>: means 'list', we use it to list all the files and folders in our current directory.
+    <span class="green-text">cd</span>: means 'change directory', we use it to change from our current directory to another.
+
+
+    it's now your turn to run your first Linux commands, go to <a href="https://distrosea.com">Distrosea</a> then search for Ubuntu, choose any version you want, and run the terminal shown in the desktop.
+
+    It's gonna look like this:
+    <img src="Capture.PNG" alt="Description of the image" />
+
+    Feel free now to try all the commands in the terminal and try to understand what they do.
+some of the commands are :
+<li class="green-text"> 
+    ls
+    cd
+    pwd
+    mkdir
+    rm
+    cp
+    mv
+    touch
+    cat
+    echo
+    grep
+    find
+    chmod
+    top
+    df 
+</li>
+if you stuck, try to use the command <li class="green-text"> man</li> before the command u wanna learn about.
+
+i.e: 
+</p>
+<div class="terminal">
+    <p><span class="user">username@linux</span>:<span class="path">~</span>$ man pwd</p>
+    <p>pwd - print name of current/working directory</p>
+
+</div>
+ 
+<p>to be continued...</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
