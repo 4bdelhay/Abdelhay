@@ -3,21 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>you can see me</title>
+    <title>Password Check</title>
+    <script src="static.js" defer></script>  
     <style>
         /* Centering the GIF on the page */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
+            height: 100vh;
             margin: 0;
-            background-color: #ffe0f3; /* Optional background color */
+            background-color: #fad6e2;
+        }
+        /* Center the GIF and input form */
+        #password-form {
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <!-- Add your GIF below -->
-    <img src="giff.gif" alt="Centered GIF">
+    <div id="password-form">
+        <img src="giff.gif" alt="Centered GIF">
+        <br>
+        <label for="password"></label>
+        <input type="password" id="password" placeholder="Enter the password">
+        <button onclick="checkPassword()">Let me in!</button>
+    </div>
 </body>
 </html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Oumaaa!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fabff2;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      position: relative; /* To allow absolute positioning of the kitty image */
+      display: none; /* Initially hide the page content */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .hello-kitty {
+      width: 300px;
+      height: auto;
+    }
+
+    .board {
+      margin-top: 30px;
+      background-color: white;
+      border: 3px solid #ff69b4;
+      border-radius: 15px;
+      padding: 20px;
+      width: 500px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .board h1 {
+      margin: 0;
+      color: #ff69b4;
+      font-size: 24px;
+    }
+
+    .top-right {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 100px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    canvas {
+      background-color: white;
+      border: 2px solid #ff69b4;
+      border-radius: 10px;
+      width: 100%;
+      height: 400px;
+      cursor: pointer;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .control-btn {
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .control-btn:hover {
+      background-color: #f36db7;
+    }
+
+    .kitty-left {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 150px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Kitty Image on the left -->
+  <img class="kitty-left" src="kitty.gif" alt="Kitty Image">
+
+  <div class="container">
+    <img id="helloKitty" class="hello-kitty" src="hello.gif" alt="" onload="handleGif()">
+    
+    <div class="board">
+      <h1>Welcome Ouma! draw something&#129392;</h1>
+      <canvas id="drawingCanvas"></canvas>
+      <div class="controls">
+        <button class="control-btn" id="colorRed">Red</button>
+        <button class="control-btn" id="colorGreen">Green</button>
+        <button class="control-btn" id="colorBlue">Blue</button>
+        <button class="control-btn" id="thicknessSmall">Thin</button>
+        <button class="control-btn" id="thicknessLarge">Thick</button>
+        <button class="control-btn" id="clearBoard">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <img class="top-right" src="ribboo.png" alt="Ribbon">
+
+  <script>
+    // Password Protection
+    const correctHash = "1c59943c6f21fb84ae8b5da01ce9fb9e7aa02df179a0441630ddd5bd5e20b444"; // Hash for "password"
+
+    async function hashPassword(password) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(password);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function checkAccess() {
+      const password = prompt("Enter the password to access this page:");
+      if (!password) {
+        alert("Access denied!");
+        window.location.href = "index.html"; // Redirect to a safe page
+        return;
+      }
+
+      const hash = await hashPassword(password);
+      if (hash === correctHash) {
+        document.body.style.display = "block"; // Show the page content
+      } else {
+        alert("Incorrect password. Access denied!");
+        window.location.href = "index.html"; // Redirect to a safe page
+      }
+    }
+
+    // Run password check on page load
+    window.onload = checkAccess;
+
+    // Drawing Board Script
+    function handleGif() {
+      const gif = document.getElementById('helloKitty');
+      setTimeout(() => {
+        gif.remove();
+      }, 10000); 
+    }
+
+    const canvas = document.getElementById('drawingCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 500;
+    canvas.height = 400;
+
+    let isDrawing = false;
+    let color = 'black';
+    let lineWidth = 5;
+
+    canvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      const canvasRect = canvas.getBoundingClientRect();
+      const x = e.clientX - canvasRect.left;
+      const y = e.clientY - canvasRect.top;
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (isDrawing) {
+        const canvasRect = canvas.getBoundingClientRect();
+        const x = e.clientX - canvasRect.left;
+        const y = e.clientY - canvasRect.top;
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = lineWidth;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.stroke();
+      }
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+    });
+
+    document.getElementById('clearBoard').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    document.getElementById('colorRed').addEventListener('click', () => {
+      color = 'red';
+    });
+    document.getElementById('colorGreen').addEventListener('click', () => {
+      color = 'green';
+    });
+    document.getElementById('colorBlue').addEventListener('click', () => {
+      color = 'blue';
+    });
+
+    document.getElementById('thicknessSmall').addEventListener('click', () => {
+      lineWidth = 5;
+    });
+
+    document.getElementById('thicknessLarge').addEventListener('click', () => {
+      lineWidth = 10;
+    });
+  </script>
+</body>
+</html>
