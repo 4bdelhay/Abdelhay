@@ -96,7 +96,6 @@
   </style>
 </head>
 <body>
-  <!-- Kitty Image on the left -->
   <img class="kitty-left" src="kitty.gif" alt="Kitty Image">
 
   <div class="container">
@@ -119,8 +118,8 @@
   <img class="top-right" src="ribboo.png" alt="Ribbon">
 
   <script>
-    // Password Protection
-    const correctHash = "1c59943c6f21fb84ae8b5da01ce9fb9e7aa02df179a0441630ddd5bd5e20b444"; // Hash for "password"
+
+    const correctHash = "1c59943c6f21fb84ae8b5da01ce9fb9e7aa02df179a0441630ddd5bd5e20b444";
 
     async function hashPassword(password) {
       const encoder = new TextEncoder();
@@ -134,23 +133,22 @@
       const password = prompt("Enter the password to access this page:");
       if (!password) {
         alert("Access denied!");
-        window.location.href = "index.html"; // Redirect to a safe page
+        window.location.href = "index.html"; 
         return;
       }
 
       const hash = await hashPassword(password);
       if (hash === correctHash) {
-        document.body.style.display = "block"; // Show the page content
+        document.body.style.display = "block";
       } else {
         alert("Incorrect password. Access denied!");
-        window.location.href = "index.html"; // Redirect to a safe page
+        window.location.href = "index.html"; 
       }
     }
 
-    // Run password check on page load
+  
     window.onload = checkAccess;
 
-    // Drawing Board Script
     function handleGif() {
       const gif = document.getElementById('helloKitty');
       setTimeout(() => {
