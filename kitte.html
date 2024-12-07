@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page doesn't exist.</title>
+    <title>Page doesn't exist anymore.</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
         .red-text {
             color: rgb(255, 9, 9);
         }
 
         /* Styling for the OA letters */
         .letters {
-            font-size: 100px;
-            font-family: 'Arial', sans-serif;
+            font-size: 100px; /* Original size for desktops */
             font-weight: bold;
             text-align: center;
+            line-height: 1;
         }
 
         .letter-o {
@@ -76,6 +82,46 @@
                 transform: translateY(30px);
             }
         }
+
+        h1, h3, h4 {
+            text-align: center;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 32px; 
+        }
+
+        h3 {
+            font-size: 18px; 
+        }
+
+        h4 {
+            font-size: 16px; 
+        }
+
+        li {
+            font-size: 18px;
+            list-style: none;
+        }
+
+        @media (max-width: 600px) {
+            .letters {
+                font-size: 20vw; 
+            }
+
+            h1 {
+                font-size: 8vw;
+            }
+
+            h3, h4 {
+                font-size: 5vw;
+            }
+
+            li {
+                font-size: 5vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -83,8 +129,12 @@
     <br>
     <br>
     <center><h3>The page you're trying to access is no longer available since:</h3></center>
-        <center><h3><li class="red-text">06/12/2024</li></h3></center>
-    
+    <br>
+    <center><h3><li class="red-text">06/12/2024</li></h3></center>
+    <br>
+    <br>
+    <br>
+    <br>
     <center>
         <div class="letters">
             <span class="letter-o">O</span>
@@ -100,10 +150,5 @@
     <br>
     <br>
     <center><h4>The page will be back as soon as the letter A stops bleeding :)</h4></center>
-
-
-
-
-
 </body>
 </html>
