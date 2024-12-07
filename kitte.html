@@ -1,30 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Password Check</title><script src="static.js" defer></script>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page doesn't exist.</title>
     <style>
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #fad6e2;
+        .red-text {
+            color: rgb(255, 9, 9);
         }
 
-        #password-form {
+        /* Styling for the OA letters */
+        .letters {
+            font-size: 100px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
             text-align: center;
+        }
+
+        .letter-o {
+            color: pink;
+        }
+
+        .letter-a {
+            color: red;
+            position: relative;
+            display: inline-block;
+        }
+
+        .letter-a::after {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            top: 30%;
+            left: 20%;
+            background: radial-gradient(circle, red 20%, transparent 80%);
+            filter: blur(2px);
+            transform: rotate(45deg);
+        }
+
+        .blood-drips {
+            position: absolute;
+            width: 5px;
+            height: 20px;
+            background: red;
+            border-radius: 3px;
+            animation: drip 1.5s infinite;
+        }
+
+        .blood-drips:nth-child(1) {
+            left: 10%;
+            top: 100%;
+            animation-delay: 0.3s;
+        }
+
+        .blood-drips:nth-child(2) {
+            left: 40%;
+            top: 100%;
+            animation-delay: 0.6s;
+        }
+
+        .blood-drips:nth-child(3) {
+            left: 70%;
+            top: 100%;
+            animation-delay: 0.9s;
+        }
+
+        @keyframes drip {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
         }
     </style>
 </head>
 <body>
-    <div id="password-form">
-        <img src="giff.gif" alt="Centered GIF">
-        <br>
-        <label for="password"></label>
-        <input type="password" id="password" placeholder="Enter the password">
-        <button onclick="checkPassword()">Let me in!</button>
-    </div>
+    <center><h1>Page Expired!</h1></center>
+    <br>
+    <br>
+    <center><h3>The page you're trying to access is no longer available since:</h3></center>
+        <center><h3><li class="red-text">06/12/2024</li></h3></center>
+    
+    <center>
+        <div class="letters">
+            <span class="letter-o">O</span>
+            <span class="letter-a">A
+                <span class="blood-drips"></span>
+                <span class="blood-drips"></span>
+                <span class="blood-drips"></span>
+            </span>
+        </div>
+    </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center><h4>The page will be back as soon as the letter A stops bleeding :)</h4></center>
+
+
+
+
+
 </body>
 </html>
