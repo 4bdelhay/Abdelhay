@@ -127,9 +127,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           break;
           case 'learn':
           return window.location.href = "learn.html";
-          case 'oa':
-          return window.location.href = "kitte.html";
-          
+    
         default:
           if (cmd) {
             output(cmd + ': command not found');
