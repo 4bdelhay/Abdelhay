@@ -107,7 +107,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           return;
           
         case 'help':
-          var result = "<h2>Help Menu:</h2><p><b>whoami</b>: display all my informations.<br><b>interests</b>: display all my interests.<br><b>love</b>: are you curious about my love?<br><b>contact</b>: Say hi<br><b>clear</b>: clear terminal<br><b>help</b>: display this menu.   <br><b>learn</b>: takes you to the learning page.<br> </p> " ;
+          var result = "<h2>Help Menu:</h2><p><b>whoami</b>: display all my informations.<br><b>interests</b>: display all my interests.<br><b>contact</b>: Say hi<br><b>clear</b>: clear terminal<br><b>help</b>: display this menu.   <br><b>learn</b>: takes you to the learning page.<br> </p> " ;
           output(result);
           break;
         case 'interests': 
@@ -122,9 +122,8 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           var result = "<h1>Abdelhay FERQASS</h1><p>from Agadir, Morocco. I am a penetration tester. I develop my own programs and hacking tools, with a huge passion of reverse engineering and developping the GNU/Linux Kernel</p>" +  "<p>I work as a penetration tester for small and medium companies, I've helped more than 12 companies to secure their web applications by finding critical bugs in their systems.<p>"
           output(result);
           break;
-        case 'love':
-          output('<img src="404.gif" alt="404 GIF">');
-          break;
+     
+        
           case 'learn':
           return window.location.href = "learn.html";
     
