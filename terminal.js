@@ -111,7 +111,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output(result);
           break;
         case 'interests': 
-          var result = "<p> Mathematics, Music production, Cyber security, Cardio...</p>";
+          var result = "<p> Cyber security, Psychology, Mathematics, Body building, Chess...</p>";
           output(result);
           break;
         case 'contact':
@@ -119,18 +119,18 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer) {
           output(result);
           break;
         case 'whoami':
-          var result = "<h1>Abdelhay FERQASS</h1><p>from Agadir, Morocco. I am a penetration tester. I develop my own programs and hacking tools, with a huge passion of reverse engineering and developping the GNU/Linux Kernel, And I love my cat.</p>" +  "<p>I work as a penetration tester for small and medium companies, I've helped more than 9 companies to secure their web applications by finding critical bugs in their systems.<p>"
+          var result = "<h1>Abdelhay FERQASS</h1><p>from Agadir, Morocco. I am a penetration tester. I develop my own programs and hacking tools, with a huge passion of reverse engineering and developping the GNU/Linux Kernel</p>" +  "<p>I work as a penetration tester for small and medium companies, I've helped more than 12 companies to secure their web applications by finding critical bugs in their systems.<p>"
           output(result);
           break;
         case 'love':
-          output("<h3>I break codes, not hearts.</p>");
+          output('<img src="404.gif" alt="404 GIF">');
           break;
           case 'learn':
           return window.location.href = "learn.html";
     
         default:
           if (cmd) {
-            output(cmd + ': command not found');
+            output(cmd + ': command not found, write help to list available commands');
           }
       };
 
